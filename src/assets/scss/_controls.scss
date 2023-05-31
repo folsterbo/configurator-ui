@@ -1,0 +1,114 @@
+//Стилизация скролла
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background-color: $color-bg-scroll;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-default;
+  border-radius: 4px;
+}
+//Кнопки
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.btn-outlined {
+  border: 1px solid #00000024 ;
+}
+.btn:hover {
+  background-color: $color-bg;
+}
+.btn-primary {
+  background-color: $color-primary;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: $color-primary-active;
+}
+.btn-add {
+  width: fit-content;
+  align-self: flex-end;
+}
+.label {
+  span {
+    color: $color-text-helper;
+    margin-bottom: 4px;
+  }
+}
+.input {
+  display: flex;
+  outline: none;
+  box-shadow: 0 24px 48px #e6ebf566, 0 1px 4px #e3ebfc;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+}
+.input.disabled {
+  color: $color-text-helper;
+  background-color: $color-bg;
+  pointer-events: none;
+}
+.icon-mode {
+  display: flex;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+  margin-left: 16px;
+  &:hover {
+    color: $color-primary;
+  }
+}
+.icon-mode.disable {
+  pointer-events: none;
+  color: #878787;
+}
+.color-text-helper {
+  color: $color-text-helper;
+}
+.tabs {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  justify-content: space-between;
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 4px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+    width: calc((100% - 16px)/2);
+    background-color: white;
+    border-radius: 4px;
+  }
+  .tab.info {
+    background-color: white;
+  }
+  .tab.primary {
+    background-color: $color-primary;
+    color: white;
+  }
+  .tab.info.active {
+    background-color: #dbe7f5;
+  }
+}
+.checkbox {
+  display: flex;
+  margin-right: 8px;
+}
+select {
+  display: flex;
+  outline: none;
+  box-shadow: 0 24px 48px #e6ebf566, 0 1px 4px #e3ebfc;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+}
