@@ -7,7 +7,7 @@ const ProgramEdit = ({configurationId, programId, onProgramEditCancel, onProgram
     const [file, setFile] = useState(null);
     const [fileIcon, setFileIcon] = useState(null);
     useEffect(() => {
-        axios.get(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/programs/${programId}`)
+        axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/programs/${programId}`)
             .then(response => setData(response.data.payload[0]))
             .catch(error => console.error(error));
     }, [configurationId, programId]);
@@ -21,7 +21,7 @@ const ProgramEdit = ({configurationId, programId, onProgramEditCancel, onProgram
         event.preventDefault();
 
         const fetchData = async () => {
-            await axios.put(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/programs/${programId}`, {data})
+            await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/programs/${programId}`, {data})
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onProgramEdit());

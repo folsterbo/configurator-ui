@@ -29,7 +29,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
     const [editConfigurationId, setEditConfigurationId] = useState(configurationId);
     const handleDeleteConfiguration = (id) => {
         const fetchData = async () => {
-            await axios.delete(`http://localhost:8181/api/v1/shell/configurations/${id}`)
+            await axios.delete(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${id}`)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));
@@ -52,7 +52,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
         const newConfigurationData = {data: configuration}
 
         const fetchData = async () => {
-            await axios.post(`http://localhost:8181/api/v1/shell/configurations`, newConfigurationData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations`, newConfigurationData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));
@@ -63,7 +63,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
         event.preventDefault();
         const newConfigurationData = {data: configuration}
         const fetchData = async () => {
-            await axios.put(`http://localhost:8181/api/v1/shell/configurations/${editConfigurationId}`, newConfigurationData)
+            await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${editConfigurationId}`, newConfigurationData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));
@@ -76,7 +76,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
         })
         const newSettingsData = {data: settings}
         const fetchData = async () => {
-            await axios.put(`http://localhost:8181/api/v1/shell/settings/active_configuration?data[value]=${clickedId}`, newSettingsData)
+            await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/settings/active_configuration?data[value]=${clickedId}`, newSettingsData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));
@@ -101,7 +101,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
     };
     useEffect(() => {
         const fetchData = async () => {
-            await axios.get('http://localhost:8181/api/v1/shell/configurations')
+            await axios.get('https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations')
                 .then(response => {
                     setConfigurationsList(response.data.items)
                 })
@@ -113,7 +113,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
     }, [update]);
     useEffect(() => {
         const fetchData = async () => {
-            await axios.get(`http://localhost:8181/api/v1/shell/configurations/${editConfigurationId}`)
+            await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${editConfigurationId}`)
                 .then(response => setConfiguration(response.data.payload[0]))
                 .catch(error => {
                     console.log(error);

@@ -24,7 +24,7 @@ const GameCreate = ({ configurationId, onGameCancel, onGameCreate }) => {
         const gameData = {data:{name, path1, path2, path3, args, work_dir, description, age_restrictions, is_for_admin, cover_img_path, icon_path, game_type_id}}
 
         const fetchData = async () => {
-            await axios.post(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/games`, gameData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/games`, gameData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onGameCreate());
@@ -87,7 +87,7 @@ const GameCreate = ({ configurationId, onGameCancel, onGameCreate }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8181/api/v1/shell/references/game_types');
+                const response = await axios.get('https://dcc4.langame.ru/configurator-api/api/v1/shell/references/game_types');
                 handleOptions(response.data.items)
             } catch (error) {
                 console.error(error);

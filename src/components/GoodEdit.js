@@ -6,7 +6,7 @@ const GoodEdit = ({configurationId, goodId, onGoodEditCancel, onGoodEdit}) => {
     const [file, setFile] = useState(null);
     const [fileIcon, setFileIcon] = useState(null);
     useEffect(() => {
-        axios.get(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods/${goodId}`)
+        axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods/${goodId}`)
             .then(response => setData(response.data.payload[0]))
             .catch(error => console.error(error));
     }, [configurationId, goodId]);
@@ -20,7 +20,7 @@ const GoodEdit = ({configurationId, goodId, onGoodEditCancel, onGoodEdit}) => {
         event.preventDefault();
 
         const fetchData = async () => {
-            await axios.put(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods/${goodId}`, {data})
+            await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods/${goodId}`, {data})
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onGoodEdit());

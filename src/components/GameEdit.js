@@ -12,7 +12,7 @@ const GameEdit = ({configurationId, gameId, onGameEditCancel, onGameEdit}) => {
     useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/games/${gameId}`);
+                    const response = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/games/${gameId}`);
                     setData(response.data.payload[0])
                     setAgeRestrictions(response.data.payload[0].age_restrictions)
                     const game_type_id = response.data.payload[0].game_type_id
@@ -38,7 +38,7 @@ const GameEdit = ({configurationId, gameId, onGameEditCancel, onGameEdit}) => {
         event.preventDefault();
 
         const fetchData = async () => {
-            await axios.put(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/games/${gameId}`, {data} )
+            await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/games/${gameId}`, {data} )
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onGameEdit());
@@ -95,7 +95,7 @@ const GameEdit = ({configurationId, gameId, onGameEditCancel, onGameEdit}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8181/api/v1/shell/references/game_types');
+                const response = await axios.get('https://dcc4.langame.ru/configurator-api/api/v1/shell/references/game_types');
                 handleOptions(response.data.items)
             } catch (error) {
                 console.error(error);

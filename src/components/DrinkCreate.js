@@ -33,7 +33,7 @@ const DrinkCreate = ({ configurationId, onDrinkCancel, onDrinkCreate }) => {
         const drinkData = {data:{description, cover_file_path, good_type_id, good_id}}
 
         const fetchData = async () => {
-            await axios.post(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods`, drinkData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods`, drinkData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onDrinkCreate());

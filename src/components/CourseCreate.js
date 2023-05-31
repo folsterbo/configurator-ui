@@ -33,7 +33,7 @@ const CourseCreate = ({ configurationId, onCourseCancel, onCourseCreate }) => {
         const courseData = {data:{description, cover_file_path, good_type_id, good_id}}
 
         const fetchData = async () => {
-            await axios.post(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods`, courseData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods`, courseData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onCourseCreate());

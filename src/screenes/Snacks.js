@@ -71,7 +71,7 @@ const Snacks = ({ configurationId, width, height }) => {
     };
     const handleElemDelete = () => {
         const fetchData = async () => {
-            await axios.delete(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods/${hoveredContainer}`)
+            await axios.delete(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods/${hoveredContainer}`)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));
@@ -83,7 +83,7 @@ const Snacks = ({ configurationId, width, height }) => {
         setBannerHeight(event.target.value);
     };
     useEffect(() => {
-        axios.get(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods`)
+        axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods`)
             .then(response => setSnacks(response.data.items.filter(item => item.good_type_id === 2)))
             .catch(error => console.error(error));
     }, [update, configurationId]);

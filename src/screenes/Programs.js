@@ -71,7 +71,7 @@ const Programs = ({ configurationId, width, height }) => {
     };
     const handleElemDelete = () => {
         const fetchData = async () => {
-            await axios.delete(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/programs/${hoveredContainer}`)
+            await axios.delete(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/programs/${hoveredContainer}`)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));
@@ -83,7 +83,7 @@ const Programs = ({ configurationId, width, height }) => {
         setBannerHeight(event.target.value);
     };
     useEffect(() => {
-        axios.get(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/programs`)
+        axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/programs`)
             .then(response => setPrograms(response.data.items))
             .catch(error => console.error(error));
     }, [update, configurationId]);

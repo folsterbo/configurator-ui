@@ -33,7 +33,7 @@ const SnackCreate = ({ configurationId, onSnackCancel, onSnackCreate }) => {
         const snackData = {data:{description, cover_file_path, good_type_id, good_id}}
 
         const fetchData = async () => {
-            await axios.post(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/goods`, snackData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/goods`, snackData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onSnackCreate());

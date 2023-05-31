@@ -20,7 +20,7 @@ function App() {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get(`http://localhost:8181/api/v1/shell/configurations/${id}`)
+                const response = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${id}`)
                 setConfigurationId(response.data.payload[0].id);
                 setConfigurationName(response.data.payload[0].configuration_name)
                 setWidth(response.data.payload[0].width)
@@ -37,10 +37,10 @@ function App() {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response1 = await axios.get(`http://localhost:8181/api/v1/shell/settings/active_configuration`);
+                const response1 = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/settings/active_configuration`);
                 const id = response1.data.payload[0].key_value;
 
-                const response2 = await axios.get(`http://localhost:8181/api/v1/shell/configurations/${id}`);
+                const response2 = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${id}`);
                 setConfigurationId(response2.data.payload[0].id);
                 setConfigurationName(response2.data.payload[0].configuration_name)
                 setWidth(response2.data.payload[0].width)

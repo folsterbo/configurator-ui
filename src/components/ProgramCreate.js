@@ -21,7 +21,7 @@ const ProgramCreate = ({ configurationId, onProgramCancel, onProgramCreate }) =>
         const programData = {data:{name, path1, path2, path3, args, work_dir, description, age_restrictions, is_for_admin, icon_path, program_type_id}}
 
         const fetchData = async () => {
-            await axios.post(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/programs`, programData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/programs`, programData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => onProgramCreate());

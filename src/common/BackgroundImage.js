@@ -10,7 +10,7 @@ const BackgroundImage = ({ onChangeBackground, configurationId }) => {
         event.preventDefault();
         const formData = new FormData();
         formData.append('wallpaper_img', file);
-        axios.post(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/desktops`, formData)
+        axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/desktops`, formData)
             .then((response) => {
                 onChangeBackground(response.data.payload.desktop_wallpaper_path);
                 console.log(response.data.payload.desktop_wallpaper_path)
@@ -23,7 +23,7 @@ const BackgroundImage = ({ onChangeBackground, configurationId }) => {
         const formData = new FormData();
         formData.append('wallpaper_img', file);
 
-        fetch(`http://localhost:8181/api/v1/shell/configurations/${configurationId}/desktops`, {
+        fetch(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/desktops`, {
             method: 'POST',
             body: formData
         })
