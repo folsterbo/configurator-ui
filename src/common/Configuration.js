@@ -16,7 +16,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
     });
     const [configuration, setConfiguration] = useState({
         id: null,
-        configuration_name: "",
+        name: "",
         width: 1920,
         height: 1024,
         desktop_wallpaper_path: null,
@@ -140,7 +140,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
                             <div className={'cell'} style={{width: '30px'}}>
                                 {item.id === clickedId && <i className={'mdi mdi-check-bold'} title={'Активная конфигурация'}></i>}
                             </div>
-                            <div className={'cell'} style={{width: '250px'}}>{item.configuration_name}</div>
+                            <div className={'cell'} style={{width: '250px'}}>{item.name}</div>
                             <div className={'cell'} style={{width: '160px'}}>{item.width}</div>
                             <div className={'cell'} style={{width: '150px'}}>{item.height}</div>
                             <div className={'cell'} style={{width: '40px'}}>
@@ -166,8 +166,8 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
                         <input
                             type="text"
                             placeholder={'Наименование'}
-                            name="configuration_name"
-                            value={configuration.configuration_name || ''}
+                            name="name"
+                            value={configuration.name || ''}
                             onChange={handleInputChange}
                             className={'input'}
                             style={{marginRight: '16px'}}

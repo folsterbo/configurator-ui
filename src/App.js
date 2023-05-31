@@ -22,7 +22,7 @@ function App() {
             try {
                 const response = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${id}`)
                 setConfigurationId(response.data.payload[0].id);
-                setConfigurationName(response.data.payload[0].configuration_name)
+                setConfigurationName(response.data.payload[0].name)
                 setWidth(response.data.payload[0].width)
                 setHeight(response.data.payload[0].height)
             } catch (error) {
@@ -42,7 +42,7 @@ function App() {
 
                 const response2 = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${id}`);
                 setConfigurationId(response2.data.payload[0].id);
-                setConfigurationName(response2.data.payload[0].configuration_name)
+                setConfigurationName(response2.data.payload[0].name)
                 setWidth(response2.data.payload[0].width)
                 setHeight(response2.data.payload[0].height)
             } catch (error) {
