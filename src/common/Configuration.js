@@ -98,7 +98,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
     };
     const handleChangeBackground = (backgroundPath) => {
         onSetBackground(backgroundPath);
-        setBackground(`http://localhost:8181/${backgroundPath}`)
+        setBackground(`https://dcc4.langame.ru/configurator-api/${backgroundPath}`)
     };
     useEffect(() => {
         const fetchData = async () => {

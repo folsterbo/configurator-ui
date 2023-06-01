@@ -14,7 +14,7 @@ const Layout = ({configurationName, configurationId, onNewConfigurationActive}) 
         onNewConfigurationActive(id);
     };
     const handleBackground = (backgroundPath) => {
-        setBackground(`http://localhost:8181/${backgroundPath}`)
+        setBackground(`https://dcc4.langame.ru/configurator-api/${backgroundPath}`)
     };
     return (
         <div className={'main-wrapper'}>

@@ -9,11 +9,11 @@ const BackgroundImage = ({ onChangeBackground, configurationId }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData();
-        formData.append('wallpaper_img', file);
+        formData.append('wallpaper', file);
         axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/desktops`, formData)
             .then((response) => {
-                onChangeBackground(response.data.payload.desktop_wallpaper_path);
-                console.log(response.data.payload.desktop_wallpaper_path)
+                onChangeBackground(response.data.payload['img_path']);
+                console.log(response.data.payload['img_path'])
             })
             .catch((error) => console.error(error));
     };
@@ -21,7 +21,7 @@ const BackgroundImage = ({ onChangeBackground, configurationId }) => {
         event.preventDefault();
 
         const formData = new FormData();
-        formData.append('wallpaper_img', file);
+        formData.append('wallpaper', file);
 
         fetch(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${configurationId}/desktops`, {
             method: 'POST',
@@ -30,7 +30,7 @@ const BackgroundImage = ({ onChangeBackground, configurationId }) => {
             .then(response => response.json())
             .then(data => data)
             .catch(error => console.error(error));
-        setBackground(data.payload.desktop_wallpaper_path
+        setBackground(data.payload.img_path
         console.log(background)
     };*/
     /*const handleButtonClick = () => {
