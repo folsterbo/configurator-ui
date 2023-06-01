@@ -23,7 +23,8 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
         is_night_mode: 0,
         created_at: null,
         updated_at: null,
-        deleted_at: null
+        deleted_at: null,
+        _method: "PUT",
     });
     const [is_night_mode, setIsNightMode] = useState(0);
     const [editConfigurationId, setEditConfigurationId] = useState(configurationId);
@@ -63,7 +64,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
         event.preventDefault();
         const newConfigurationData = {data: configuration}
         const fetchData = async () => {
-            await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${editConfigurationId}`, newConfigurationData)
+            await axios.post(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${editConfigurationId}`, newConfigurationData)
                 .catch(error => console.error(error));
         };
         fetchData().then(() => setUpdate(update + 1));

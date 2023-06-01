@@ -1,4 +1,4 @@
-import {Routes, Route, Navigate} from 'react-router-dom'
+import  {Routes, Route, Navigate} from 'react-router-dom'
 import { Games } from './screenes/Games'
 import { Programs } from './screenes/Programs'
 import { Notfoundpage } from './components/Notfoundpage'
@@ -38,7 +38,7 @@ function App() {
             setIsLoading(true);
             try {
                 const response1 = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/settings/active_configuration`);
-                const id = response1.data.payload[0].key_value;
+                const id = response1.data.payload[0].value;
 
                 const response2 = await axios.get(`https://dcc4.langame.ru/configurator-api/api/v1/shell/configurations/${id}`);
                 setConfigurationId(response2.data.payload[0].id);
