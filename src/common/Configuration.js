@@ -75,7 +75,7 @@ const Configuration = ({configurationId, onConfigurationChange, onSetBackground}
         setSettings({
             value: clickedId
         })
-        const newSettingsData = {data: settings}
+        const newSettingsData = settings
         const fetchData = async () => {
             await axios.put(`https://dcc4.langame.ru/configurator-api/api/v1/shell/settings/active_configuration?data[value]=${clickedId}`, newSettingsData)
                 .catch(error => console.error(error));
